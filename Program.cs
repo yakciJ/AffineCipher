@@ -127,13 +127,37 @@ namespace MaHoaAffine
                 default: return '0';
             }
         }
+
+        static int ucln(int a)
+        {
+            int b = 26;
+            while (a*b != 0)
+            {
+                if (a > b)
+                {
+                    a = a % b;
+                }
+                else b = b % a;
+            }
+            return a + b;
+        }
+
         static void Main(string[] args)
         {
+            int a, b;
             Console.WriteLine("Affine Cipher");
-            Console.Write("a: ");
-            int a = Convert.ToInt32(Console.ReadLine());
+            do
+            {
+                Console.Write("a: ");
+                a = Convert.ToInt32(Console.ReadLine());
+                if (ucln(a) != 1)
+                {
+                    Console.WriteLine("Wrong a, GCD(a,26) must equal to 1 ");
+
+                }
+            } while (ucln(a) != 1);
             Console.Write("b: ");
-            int b = Convert.ToInt32(Console.ReadLine());
+            b = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter string you want to encryption:");
             string A = Console.ReadLine();
             string B = "";
