@@ -129,11 +129,17 @@ namespace MaHoaAffine
         }
         static void Main(string[] args)
         {
+            Console.WriteLine("Affine Cipher");
+            Console.Write("a: ");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("b: ");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter string you want to encryption:");
             string A = Console.ReadLine();
             string B = "";
             for(int i = 0; i < A.Length; i++)
             {
-                B += inttostring((5*stringtoint(A[i])+3)%26); 
+                B += inttostring((a*stringtoint(A[i])+b)%26); 
             }
             Console.WriteLine(B);
             Console.ReadKey();
